@@ -1,0 +1,6 @@
+/.vscode
+main
+main.c
+CMake*
+cmake*
+Makefile
