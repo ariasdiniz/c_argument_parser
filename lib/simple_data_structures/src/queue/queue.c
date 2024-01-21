@@ -25,11 +25,11 @@ struct Queue *createqueue() {
   other manually allocated memory adresses, please free all pointers
   before calling this method.
   @param queue A pointer to a Queue.
-  @return Return 0 when successful. Return -1 if queue is empty or NULL.
+  @return Return 0 when successful. return (void *)-1 if queue is empty or NULL.
 */
 void *deletequeue(struct Queue *queue) {
   if (queue == NULL) {
-    return -1;
+    return (void *)-1;
   }
   if (queue->size == 0) {
     free(queue);
@@ -50,16 +50,16 @@ void *deletequeue(struct Queue *queue) {
   Add a new element to the queue.
   @param queue A pointer to a Queue.
   @param value A pointer to a value to be stored.
-  @return Return 0 if successful. Return -1 if queue is NULL or empty,
+  @return Return 0 if successful. return (void *)-1 if queue is NULL or empty,
   or in case of error in memory allocation.
 */
 void *addtoqueue(struct Queue *queue, void *value) {
   if (queue == NULL) {
-    return -1;
+    return (void *)-1;
   }
   struct QueueItem *item = malloc(sizeof(struct QueueItem));
   if (item == NULL) {
-    return -1;
+    return (void *)-1;
   }
   item->value = value;
   item->prev = NULL;
@@ -82,7 +82,7 @@ void *addtoqueue(struct Queue *queue, void *value) {
   Don't forget to free this pointer afterward, if it point to a manually
   allocated memory address.
   @param queue A pointer to a queue.
-  @return A pointer to the value stored. Return -1 if the queue is empty.
+  @return A pointer to the value stored. return (void *)-1 if the queue is empty.
 */
 void *popfromqueue(struct Queue *queue) {
   if (queue == NULL) {

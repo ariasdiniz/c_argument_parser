@@ -24,11 +24,11 @@ struct Stack *createstack() {
   other manually allocated memory adresses, please free all pointers
   before calling this method.
   @param stack A pointer to a Stack.
-  @return Return 0 when successful. Return -1 if Stack is empty or NULL.
+  @return Return 0 when successful. return (void *)-1 if Stack is empty or NULL.
 */
 void *deletestack(struct Stack *stack) {
   if (stack == NULL) {
-    return -1;
+    return (void *)-1;
   }
   if (stack->size == 0 && stack->top == NULL) {
     free(stack);
@@ -49,16 +49,16 @@ void *deletestack(struct Stack *stack) {
   Add a new element to the Stack.
   @param stack A pointer to a Stack.
   @param value A pointer to a value to be stored.
-  @return Return 0 if successful. Return -1 if Stack is NULL or empty,
+  @return Return 0 if successful. return (void *)-1 if Stack is NULL or empty,
   or in case of error in memory allocation.
 */
 void *addtostack(struct Stack *stack, void *value) {
   if (stack == NULL) {
-    return -1;
+    return (void *)-1;
   }
   struct StackItem *item = malloc(sizeof(struct StackItem));
   if (item == NULL) {
-    return -1;
+    return (void *)-1;
   }
   item->next = stack->top;
   item->value = value;
@@ -72,11 +72,11 @@ void *addtostack(struct Stack *stack, void *value) {
   Don't forget to free this pointer afterward, if it point to a manually
   allocated memory address.
   @param stack A pointer to a Stack.
-  @return A pointer to the value stored. Return -1 if the Stack is empty.
+  @return A pointer to the value stored. return (void *)-1 if the Stack is empty.
 */
 void *popfromstack(struct Stack *stack) {
   if (stack == NULL || stack->size == 0) {
-    return -1;
+    return (void *)-1;
   }
   struct StackItem *item = stack->top;
   void *value = item->value;

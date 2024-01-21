@@ -28,7 +28,7 @@ struct LinkedList *createlist() {
 */
 void *deletelist(struct LinkedList *list) {
   if (list == NULL) {
-    return -1;
+    return (void *)-1;
   }
   if (list->size == 0) {
     free(list);
@@ -55,12 +55,12 @@ void *deletelist(struct LinkedList *list) {
 */
 void *addtolist(struct LinkedList *list, void *value) {
   if (list == NULL) {
-    return -1;
+    return (void *)-1;
   }
   if (list->size == 0) {
     struct Node *node = malloc(sizeof(struct Node));
     if (node == NULL) {
-      return -1;
+      return (void *)-1;
     }
     node->value = value;
     node->next = NULL;
@@ -71,7 +71,7 @@ void *addtolist(struct LinkedList *list, void *value) {
   }
   struct Node *node = malloc(sizeof(struct Node));
   if (node == NULL) {
-    return -1;
+    return (void *)-1;
   }
   node->value = value;
   node->next = NULL;
@@ -86,11 +86,11 @@ void *addtolist(struct LinkedList *list, void *value) {
 
   @param list A pointer to a LinkedList.
   @param index An integer representing the index.
-  @returns Returns a pointer to the value of the index. Return -1 in case of error.
+  @returns Returns a pointer to the value of the index. return (void *)-1 in case of error.
 */
 void *getfromindex(struct LinkedList *list, int index) {
   if (list == NULL || index > list->size - 1 || index < 0) {
-    return -1;
+    return (void *)-1;
   }
   struct Node *node = list->head;
   for (int i=0; i < index; i++) {
@@ -111,11 +111,11 @@ static void resetlist(struct LinkedList *list) {
 
   @param list A pointer to a LinkedList.
   @param index An integer representing the index to be removed.
-  @return Return 0 when successful. Return -1 in case of error.
+  @return Return 0 when successful. return (void *)-1 in case of error.
 */
 void *removefromindex(struct LinkedList *list, int index) {
   if (list == NULL || index >= list->size || index < 0) {
-    return -1;
+    return (void *)-1;
   }
   struct Node *node = list->head;
   struct Node *temp;
