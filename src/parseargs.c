@@ -20,5 +20,3 @@ HashTable *parse_args(int argc, char *argv[]) {
   }
   return table;
 }
-
-void call_help(HashTable *parsed_args) {}
