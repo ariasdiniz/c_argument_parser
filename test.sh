@@ -34,8 +34,7 @@ gcc -o tests $all_files -O0 -g -Wall -Wextra -Werror -Wno-unused-parameter -Wno-
 
 # Run the program
 chmod u+x tests
-./tests
+valgrind --leak-check=yes ./tests
 
 # Remove the executable
 rm tests
-

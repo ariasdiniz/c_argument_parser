@@ -91,27 +91,24 @@ void *addtohash(HashTable *hash, char *key, char *value) {
   Gets a value from a hash using the provided key.
   @param hash A pointer to the HashTable.
   @param key A char pointer representing the key.
-  @return Return a char pointer to the value. return (void *)-1 if hash is NULL
+  @return Return a char pointer to the value. return "\0" if hash is NULL
   or if the provided key does not have a value.
 */
 char *getfromhash(HashTable *hash, char *key) {
   if (hash == NULL) {
-    return (void *)-1;
+    return "\0";
   }
   unsigned int index = hashfunc(key);
   LinkedList *item = hash->bucket[index];
   if (item == NULL) {
-    return (void *)-1;
+    return "\0";
   }
   void *value;
   for (int i = 0; i < item->size; i++) {
     value = getfromindex(item, i);
-    if (value == NULL) {
-      continue;
-    }
     if (strcmp(((KeyValue *)value)->key, key) == 0) {
       return ((KeyValue *)value)->value;
     }
   }
-  return (void *)-1;
+  return "\0";
 }
