@@ -91,8 +91,8 @@ void *popfromqueue(struct Queue *queue) {
   struct QueueItem *item = queue->first;
   void *value = item->value;
   if (item == queue->last) {
-    queue->first == NULL;
-    queue->last == NULL;
+    queue->first = NULL;
+    queue->last = NULL;
     queue->size--;
     free(item);
     return value;
