@@ -35,7 +35,6 @@
  *   char* value2 = getfromhash(params, "value2"); // Gets "value2" as key itself
  *   deletehash(params); // Clean up
  */
-
 HashTable *parse_args(int argc, char *argv[]);
 
 #endif // ARIA_C_ARGUMENT_PARSER_PARSER_H
