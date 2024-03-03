@@ -11,6 +11,6 @@ typedef struct HashTable {
 HashTable *createhash();
 void *deletehash(HashTable *hash);
 char *getfromhash(HashTable *hash, char *key);
-void * addtohash(HashTable *hash, char *key, char *value);
+void *addtohash(HashTable *hash, char *key, char *value);
 
 #endif // ARIA_DATA_STRUCTURES_HASH_H
